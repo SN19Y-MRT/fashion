@@ -15,11 +15,13 @@ class CreateFashionsTable extends Migration
     {
         
         Schema::create('fashions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->char('name', 100);
             $table->boolean('gender');
-            $table->string('email');
+            $table->string('email',500);
             $table->tinyInteger('Age');
+  
+            
         });
     }
 
