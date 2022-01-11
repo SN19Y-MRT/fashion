@@ -3,13 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\fashion;
-use Illuminate\Http\Request;
+use App\Http\Requests\fashionRequest;
 
-class PostController extends Controller
+class fashionController extends Controller
 {
-    public function index(fashion $fashion)
-    {
-        return view('fashions/index')->with(['fashions' => $fashion->get()]);  
-    }
+public function index(fashion $fashion)
+{
+    return view('fashions/index')->with(['fashions' => $fashion->getPaginateByLimit()]);
+} 
+
+/**
+ * 特定IDのpostを表示する
+ *
+ * @params Object fashion // 引数の$fashionはid=1のfashionインスタンス
+ * @return Reposnse fahsion view
+ */
+public function show(fahsion $fashion
+)
+{
+    return view('fashions/show')->with(['fashion' => $fashion]);
+}
+
+public function register()
+{
+    return view('fashions/register');
+}
+
+public function store(Request $request, fashion $fashion)
+{
+    $input = $request['fashion'];
+    $fashion->fill($input)->save();
+    return redirect('/fashions/' . $fashion->id);
+}
+    
+    
 }
 ?>
