@@ -8,10 +8,13 @@
     </head>
     <body>
         <h1>My fashion item</h1>
+        [<a href='/fashions/register'>登録</a>]
         <div class='fashions'>
             @foreach ($fashions as $fashion)
                 <div class='fashion'>
-                    <h2 class='fashion name'>{{ $fashion->title}}</h2>
+                    <h2 class='fashion name'>
+                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->title }}</a>
+                    </h2>
                     <p class='fashion overview'>{{ $fashion->body }}</p>
                 </div>
             @endforeach

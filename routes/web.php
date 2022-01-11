@@ -14,3 +14,8 @@
 Route::get('/fashions', 'fashionController@index');
 
 Route::get('/', 'fashionController@index');
+
+Route::get('/fashions/register', 'fashionController@register');
+Route::post('/fashions', 'fashionController@store');
+
+Route::get('/fashions/{fashion}', 'fashionController@show');
