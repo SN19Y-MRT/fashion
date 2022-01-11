@@ -13,6 +13,4 @@
 
 Route::get('/fashions', 'fashionController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'fashionController@index');
