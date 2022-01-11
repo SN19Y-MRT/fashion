@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToFashionsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddImageColumnToFashionsTable extends Migration
      */
 public function up()
 {
-    Schema::table('fashions', function (Blueprint $table) {
-        $table->string('image', 100)->nullable();
+    Schema::create('categories', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('name', 50);
         $table->timestamps();
-        $table->softDeletes();
     });
 }
 
@@ -27,8 +27,6 @@ public function up()
      */
     public function down()
     {
-        Schema::table('fashions', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categories');
     }
 }
