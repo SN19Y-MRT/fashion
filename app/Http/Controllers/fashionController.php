@@ -28,13 +28,13 @@ public function register()
     return view('fashions/register');
 }
 
-public function store(Request $request, Fashion $fashion)
+public function store(fashionRequest $request, Fashion $fashion)
 {
     $input = $request['fashion'];
     $fashion->fill($input)->save();
     return redirect('/fashions/' . $fashion->id);
 }
     
-    
+
 }
 ?>

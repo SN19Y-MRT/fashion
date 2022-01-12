@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>fahshion item</h1>
-        <form action="/fashions" method="FASHION">
+        <form action="/fashions" method="POST">
             @csrf
             <div class="fashionName">
                 <h2>fahshion item Name</h2>
