@@ -20,3 +20,6 @@ Route::get('/fashions/register', 'fashionController@register');
 Route::get('/fashions/{fashion}', 'fashionController@show');  
 Route::post('/fashions','fashionController@store');
 
+Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
+Route::put('/fashions/{fashion}', 'fashionController@update');
+
