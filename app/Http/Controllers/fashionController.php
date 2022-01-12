@@ -41,12 +41,18 @@ class fashionController extends Controller
     }
     
     public function update(fashionRequest $request, fashion $fashion)
-{
-    $input_fashion = $request['fashion'];
-    $fashion->fill($input_fashion)->save();
-
-    return redirect('/fashions/' . $fashion->id);
-}
+    {
+        $input_fashion = $request['fashion'];
+        $fashion->fill($input_fashion)->save();
+    
+        return redirect('/fashions/' . $fashion->id);
+    }
+    
+    public function delete(fashion $fashion)
+    {
+        $fashion->delete();
+        return redirect('/');
+    }
     
 
 }
