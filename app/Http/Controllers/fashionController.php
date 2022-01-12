@@ -18,7 +18,7 @@ class fashionController extends Controller
      * @params Object fashion // 引数の$fashionはid=1のfashionインスタンス
      * @return Reposnse fashion view
      */
-    public function show(Fashion $fashion)
+    public function show(fashion $fashion)
     {
         return view('fashions/show')->with(['fashion' => $fashion]);
     }
@@ -26,6 +26,9 @@ class fashionController extends Controller
     public function register()
     {
         return view('fashions/register');
+        
+
+
     }
     
     public function store(fashionRequest $request, Fashion $fashion)
@@ -44,7 +47,6 @@ class fashionController extends Controller
     {
         $input_fashion = $request['fashion'];
         $fashion->fill($input_fashion)->save();
-    
         return redirect('/fashions/' . $fashion->id);
     }
     
@@ -53,6 +55,8 @@ class fashionController extends Controller
         $fashion->delete();
         return redirect('/');
     }
+    
+    
     
 
 }

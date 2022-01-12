@@ -15,6 +15,7 @@
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
+                    
                     <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
                     <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
                         @csrf
@@ -22,6 +23,7 @@
                         <button type="submit">削除</button> 
                     </form>
                 </div>
+                
             @endforeach
         </div>
     </body>
