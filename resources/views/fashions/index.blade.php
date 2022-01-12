@@ -12,10 +12,10 @@
         <div class='fashions'>
             @foreach ($fashions as $fashion)
                 <div class='fashion'>
-                    <h2 class='fashion name'>
-                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->title }}</a>
+                    <h2 class='fashionName'>
+                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
-                    <p class='fashion overview'>{{ $fashion->body }}</p>
+                    <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
                 </div>
             @endforeach
         </div>

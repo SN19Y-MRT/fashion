@@ -19,15 +19,9 @@ public function getPaginateByLimit(int $limit_count = 10)
 }
 
 protected $fillable = [
-    'fashion name',
-    'fashion overview',
+    'fashionName',
+    'fashionOverview',
 ];
-
-    public function category()
-{
-    return $this->belongsTo('App\Category');
-}
-
 
 
 }

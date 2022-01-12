@@ -9,8 +9,8 @@ class fashionRequest extends FormRequest
     public function rules()
     {
         return [
-            'fashion.fashion name' => 'required|string|max:100',
-            'fashion.fashion overview' => 'required|string|max:4000',
+            'fashion.fashionName' => 'required|string|max:100',
+            'fashion.fashionOverview' => 'required|string|max:4000',
         ];
     }
 }

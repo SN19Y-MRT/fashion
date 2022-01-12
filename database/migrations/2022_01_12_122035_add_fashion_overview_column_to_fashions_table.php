@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryIdToFashionsTable extends Migration
+class AddFashionOverviewColumnToFashionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddCategoryIdToFashionsTable extends Migration
     public function up()
     {
         Schema::table('fashions', function (Blueprint $table) {
-             $table->integer('category_id')->unsigned();
+            $table->string('fashionOverview',500)->nullable();
         });
     }
 
