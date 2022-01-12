@@ -8,15 +8,15 @@
         <h1>fahshion item</h1>
         <form action="/fashions" method="FASHION">
             @csrf
-            <div class="fashion name">
-                <h2>fahshion name</h2>
-                <input type="text" name="fashion[name]" placeholder="名前"/>
-                <p class="title__error" style="color:red">{{ $errors->first('fashion.fashion name') }}</p>
+            <div class="fashionName">
+                <h2>fahshion item Name</h2>
+                <input type="text" name="fashion[fashionName]" placeholder="名前"/>
+                <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
             </div>
-            <div class="fashion overview">
+            <div class="fashionOverview">
                 <h2>fahshion itemの概要</h2>
-                <textarea name="fashion[fashion overview]" placeholder="登録したfashion itemの概要"></textarea>
-                <p class="fashion overview__error" style="color:red">{{ $errors->first('fashion.fahshion overview') }}</p>
+                <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要"></textarea>
+                <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
             </div>
             <input type="submit" value="保存"/>
         </form>

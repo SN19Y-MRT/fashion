@@ -7,7 +7,7 @@ use App\Http\Requests\fashionRequest;
 
 class fashionController extends Controller
 {
-public function index(fashion $fashion)
+public function index(Fashion $fashion)
 {
     return view('fashions/index')->with(['fashions' => $fashion->getPaginateByLimit()]);
 } 
@@ -18,8 +18,7 @@ public function index(fashion $fashion)
  * @params Object fashion // 引数の$fashionはid=1のfashionインスタンス
  * @return Reposnse fahsion view
  */
-public function show(fahsion $fashion
-)
+public function show(Fashion $fashion)
 {
     return view('fashions/show')->with(['fashion' => $fashion]);
 }
@@ -29,7 +28,7 @@ public function register()
     return view('fashions/register');
 }
 
-public function store(Request $request, fashion $fashion)
+public function store(Request $request, Fashion $fashion)
 {
     $input = $request['fashion'];
     $fashion->fill($input)->save();

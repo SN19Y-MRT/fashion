@@ -9,13 +9,13 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1 class="fashion name">
-            {{ $fashion->title }}
+        <h1 class="fashionName">
+            {{ $fashion->fashionName }}
         </h1>
         <div class="content">
             <div class="content__fashion">
                 <h3>本文</h3>
-                <p>{{ $fashion->body }}</p>    
+                <p>{{ $fashion->fashionOverview }}</p>    
             </div>
         </div>
         <div class="footer">
