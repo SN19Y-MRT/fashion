@@ -22,4 +22,5 @@
             <a href="/">戻る</a>
         </div>
     </body>
+    <p class="edit">[<a href="/fashions/{{ $fashion->id }}/edit">編集</a>]</p>
 </html>
