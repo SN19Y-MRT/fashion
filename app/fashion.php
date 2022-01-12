@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class fashion extends Model
+
+class fashion extends Model 
 {
 public function getByLimit(int $limit_count = 10)
 {

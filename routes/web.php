@@ -22,4 +22,5 @@ Route::post('/fashions','fashionController@store');
 
 Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
 Route::put('/fashions/{fashion}', 'fashionController@update');
+Route::delete('/fashions/{fashion}', 'fashionController@delete');
 
