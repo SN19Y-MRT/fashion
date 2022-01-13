@@ -1,3 +1,6 @@
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +9,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    
     <body>
         <h1>My fashion item</h1>
         [<a href='/fashions/register'>登録</a>]
@@ -33,3 +37,4 @@
         </div>    
     </body>
 </html>
+@endsection
