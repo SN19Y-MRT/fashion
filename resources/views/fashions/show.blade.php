@@ -1,3 +1,6 @@
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
 <!DOCTYPE HTML>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
@@ -26,3 +29,4 @@
     </body>
     <p class="edit">[<a href="/fashions/{{ $fashion->id }}/edit">編集</a>]</p>
 </html>
+@endsection
