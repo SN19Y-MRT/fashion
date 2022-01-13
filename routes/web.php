@@ -24,3 +24,7 @@ Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
 Route::put('/fashions/{fashion}', 'fashionController@update');
 Route::delete('/fashions/{fashion}', 'fashionController@delete');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
