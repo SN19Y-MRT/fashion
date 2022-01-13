@@ -11,19 +11,20 @@
 |
 */
 Route::group(['middleware' => 'auth'], function(){
-Route::get('/fashions', 'fashionController@index');
-Route::get('/', 'fashionController@index')->middleware('auth');
-
-Route::get('/fashions/register', 'fashionController@register');
-
-Route::get('/fashions/{fashion}', 'fashionController@show');
-Route::post('/fashions','fashionController@store');
-
-Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
-Route::put('/fashions/{fashion}', 'fashionController@update');
-Route::delete('/fashions/{fashion}', 'fashionController@delete');
-
-Route::get('/categories/{category}', 'CategoryController@index');
+    
+    Route::get('/fashions', 'fashionController@index');
+    Route::get('/', 'fashionController@index')->middleware('auth');
+    
+    Route::get('/fashions/register', 'fashionController@register');
+    
+    Route::get('/fashions/{fashion}', 'fashionController@show');
+    Route::post('/fashions','fashionController@store');
+    
+    Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
+    Route::put('/fashions/{fashion}', 'fashionController@update');
+    Route::delete('/fashions/{fashion}', 'fashionController@delete');
+    
+    Route::get('/categories/{category}', 'CategoryController@index');
 });
 
 
