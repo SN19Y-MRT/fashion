@@ -18,6 +18,7 @@
                 <p>{{ $fashion->fashionOverview }}</p>    
             </div>
         </div>
+        <a href="">{{ $fashion->category->name }}</a>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

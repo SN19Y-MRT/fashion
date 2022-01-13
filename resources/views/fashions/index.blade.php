@@ -9,13 +9,14 @@
     <body>
         <h1>My fashion item</h1>
         [<a href='/fashions/register'>登録</a>]
+
         <div class='fashions'>
             @foreach ($fashions as $fashion)
                 <div class='fashion'>
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
-                    
+                    <a href="">{{ $fashion->category->name }}</a>
                     <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
                     <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
                         @csrf
@@ -25,6 +26,8 @@
                 </div>
                 
             @endforeach
-        </div>
+            <div class='paginate'>
+                {{ $fashions->links() }}
+            </div>
     </body>
 </html>

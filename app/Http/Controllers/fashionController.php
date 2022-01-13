@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\fashion;
 use App\Http\Requests\fashionRequest;
 
 class fashionController extends Controller
 {
-    public function index(Fashion $fashion)
+    public function index(fashion $fashion)
     {
         return view('fashions/index')->with(['fashions' => $fashion->getPaginateByLimit()]);
     } 
-
     /**
      * 特定IDのpostを表示する
      *
@@ -23,12 +23,9 @@ class fashionController extends Controller
         return view('fashions/show')->with(['fashion' => $fashion]);
     }
     
-    public function register()
+    public function register(Category $category)
     {
-        return view('fashions/register');
-        
-
-
+        return view('fashions/register')->with(['categories' => $category->get()]);;
     }
     
     public function store(fashionRequest $request, Fashion $fashion)
