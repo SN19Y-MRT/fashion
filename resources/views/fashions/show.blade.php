@@ -12,6 +12,7 @@
         <h1 class="fashionName">
             {{ $fashion->fashionName }}
         </h1>
+        <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
         <div class="content">
             <div class="content__fashion">
                 <h3>本文</h3>
