@@ -21,6 +21,12 @@
                 <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要"></textarea>
                 <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
             </div>
+            <div class="syuunou">
+                <h2>収納場所</h2>
+                <textarea name="fashion[syuunou]" placeholder="クローゼット等"></textarea>
+                <p class="syuunou_error" style="color:red">{{ $errors->first('fashion.syuunou') }}</p>
+                
+            </div>
             <div class="category">
                 <h2>Category</h2>
                 <select name="fashion[category_id]">

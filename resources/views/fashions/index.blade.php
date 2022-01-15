@@ -21,7 +21,7 @@
                     </h2>
                     <a href="">{{ $fashion->category->name }}</a>
                     <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
-                    
+                    <p class='syuunou'>{{ $fashion->syuunou }}</p>
                     <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
                         @csrf
                         @method('DELETE')
@@ -29,6 +29,7 @@
                     </form>
                     <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
                 </div>
+                
             @endforeach
             <div class='paginate'>
                 {{ $fashions->links() }}

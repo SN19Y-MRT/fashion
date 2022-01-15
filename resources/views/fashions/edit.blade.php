@@ -16,6 +16,10 @@
                 <h2>概要</h2>
                 <input type='text' name='fashion[fashionOverview]' value="{{ $fashion->fashionOverview }}">
             </div>
+            <div class='content_syuunou'>
+                <h2>収納場所</h2>
+                <input type='text' name'fashion[syuunou]' value="{{ $fashion->syuunou }}"> 
+            </div>
             <input type="submit" value="保存">
         </form>
     </div>
