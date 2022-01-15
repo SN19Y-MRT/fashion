@@ -18,7 +18,7 @@
             </div>
             <div class="fashionOverview">
                 <h2>fashion itemの概要</h2>
-                <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要"></textarea>
+                <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要" ></textarea>
                 <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
             </div>
             <div class="syuunou">

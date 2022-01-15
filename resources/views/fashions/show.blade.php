@@ -18,12 +18,13 @@
         <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
         <div class="content">
             <div class="content__fashion">
-                <h3>本文</h3>
+                <h3>概要</h3>
                 <p>{{ $fashion->fashionOverview }}</p>    
             </div>
         </div>
         <h1 class="syuunou">
-            {{ $fashion->syuunou }}
+            <h3>収納場所</h3>
+            <p>{{ $fashion->syuunou }}</p>
         </h1>
         <a href="">{{ $fashion->category->name }}</a>
         <div class="footer">
