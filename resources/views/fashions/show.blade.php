@@ -22,6 +22,9 @@
                 <p>{{ $fashion->fashionOverview }}</p>    
             </div>
         </div>
+        <h1 class="syuunou">
+            {{ $fashion->syuunou }}
+        </h1>
         <a href="">{{ $fashion->category->name }}</a>
         <div class="footer">
             <a href="/">戻る</a>

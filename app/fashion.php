@@ -11,7 +11,8 @@ class fashion extends Model
         protected $fillable = [
         'fashionName',
         'fashionOverview',
-        'category_id'
+        'category_id',
+        'syuunou'
         
     ];
     
