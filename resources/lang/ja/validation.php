@@ -116,7 +116,12 @@ return [
     'uploaded'             => ':attributeのアップロードに失敗しました。',
     'url'                  => ':attributeに正しい形式を指定してください。',
     'uuid'                 => ':attributeに有効なUUIDを指定してください。',
-
+        'attributes' => [
+        "name" => "名前",
+        "password" => "パスワード",
+        "password_confirmation" => "パスワード(確認用)",
+        "email" => "メールアドレス",
+    ],
     /*
     |--------------------------------------------------------------------------
     | Custom バリデーション言語行
