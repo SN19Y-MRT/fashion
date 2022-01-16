@@ -26,8 +26,8 @@ class fashionController extends Controller
     
     public function register(Category $category)
     {
-        return view('fashions/register')->with(['categories' => $category->get()]);;
-        
+        return view('fashions/register')->with(['categories' => $category->get()]);
+
 
     }
     public function store(fashionRequest $request, Fashion $fashion)
@@ -55,6 +55,7 @@ class fashionController extends Controller
         return redirect('/');
     }
     
+
     
     
 
