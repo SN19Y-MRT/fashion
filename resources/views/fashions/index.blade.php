@@ -19,7 +19,7 @@
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
-                    <a href="">{{ $fashion->category->name }}</a>
+                    
                     <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
                     <p class='syuunou'>{{ $fashion->syuunou }}</p>
                     
