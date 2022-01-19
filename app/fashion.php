@@ -32,4 +32,6 @@ class fashion extends Model
     {
         return $this->belongsTo('App\Category');
     }
+    
+
 }

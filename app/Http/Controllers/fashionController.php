@@ -12,6 +12,17 @@ class fashionController extends Controller
     public function index(fashion $fashion)
     {
         return view('fashions/index')->with(['fashions' => $fashion->getPaginateByLimit()]);
+        
+           $articles = Post::orderBy('created_at', 'asc')->where(function ($query) {
+
+            // 検索機能
+            if ($search = request('search')) {
+                $query->where('fashionName', 'LIKE', "%{$search}%")->orWhere('fashionOverview','LIKE',"%{$search}%")->orWhere('syuunou','LIKE',"%{$search}%")
+                ;
+            }
+
+            // 8投稿毎にページ移動
+        })->paginate(8);
     } 
     /**
      * 特定IDのfashionを表示する
@@ -54,6 +65,10 @@ class fashionController extends Controller
         $fashion->delete();
         return redirect('/');
     }
+    
+
+    
+
     
 
     
