@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class fashion extends Model 
+class Fashion extends Model 
 {
         protected $fillable = [
         'fashionName',
@@ -15,6 +15,8 @@ class fashion extends Model
         'syuunou'
         
     ];
+    
+    
     
     public function getByLimit(int $limit_count = 10)
     {
