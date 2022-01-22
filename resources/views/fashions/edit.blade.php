@@ -10,7 +10,7 @@
             @method('PUT')
             
             <div class='content__title'>
-                <h2>FashionItemの名前</h2>
+                <h2>fashion itemの名前</h2>
                 <input type='text' name='fashion[fashionName]' value="{{ $fashion->fashionName }}">
             </div>
             <div class='content__body'>

@@ -8,7 +8,7 @@
         <title>MY FASHION ITEM</title>
     </head>
     <body>
-        <h1>fahshion item</h1>
+        <h1>fahshion item 登録画面</h1>
         <form action="/fashions" method="POST">
             @csrf
             

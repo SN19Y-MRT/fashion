@@ -12,8 +12,18 @@
     
     <body>
         <h1>My fashion item</h1>
-        [<a href='/fashions/register'>登録</a>]
-        <div class='fashions'>
+         <form class="form-inline my-2 my-lg-0 ml-2">
+              <div class="form-group">
+              <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+              </div>
+              <input type="submit" value="検索" class="btn btn-info">
+          </form>
+
+        <div class='fashions' >
+ 
+            <a href='/fashions/register'> <button type="submit" class='btn btn-danger'>登録</button></a>
+
+
             @foreach ($fashions as $fashion)
                 <div class='fashion'>
                     <h2 class='fashionName'>
@@ -32,11 +42,11 @@
                 </div>
                 
             @endforeach
-            <div class='paginate'>
+            <div class="d-flex justify-content-center ">
                 {{ $fashions->links() }}
             </div>
+        </div>
         
-        </div>    
     </body>
 </html>
 @endsection
