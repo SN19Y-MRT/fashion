@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use JD\Cloudder\Facades\Cloudder;
 use App\Category;
 use App\Fashion;
 use GuzzleHttp\Client;
@@ -32,6 +32,7 @@ class fashionController extends Controller
      */
     public function show(Fashion $fashion)
     {
+
         return view('fashions/show')->with(['fashion' => $fashion]);
     }
     
@@ -43,9 +44,25 @@ class fashionController extends Controller
     }
     public function store(fashionRequest $request, Fashion $fashion)
     {
+               $fashion = new Fashion;
+
+        if ($image = $request->file('image')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            //直前にアップロードされた画像のpublicIdを取得する。
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 200,
+                'height'    => 200
+            ]);
+            $fashion->image_path = $logoUrl;
+            $fashion->public_id  = $publicId;
+        }
+
         $input = $request['fashion'];
         $fashion->fill($input)->save();
         return redirect('/fashions/' . $fashion->id);
+        
     }
     
     public function edit(Fashion $fashion)
@@ -65,6 +82,7 @@ class fashionController extends Controller
         $fashion->delete();
         return redirect('/');
     }
+
 
     
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\CustomResetPassword;
@@ -10,7 +11,7 @@ use App\Notifications\CustomResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use HasApiTokens,Notifiable;
     /**
      * The attributes that are mass assignable.
      *

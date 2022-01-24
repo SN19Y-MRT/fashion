@@ -25,7 +25,9 @@
 
 
             @foreach ($fashions as $fashion)
+                
                 <div class='fashion'>
+                    <img src="{{ $fashion->image_path }}" alt="画像">
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>

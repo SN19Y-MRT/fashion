@@ -9,9 +9,12 @@
     </head>
     <body>
         <h1>fahshion item 登録画面</h1>
-        <form action="/fashions" method="POST">
-            @csrf
-            
+        <form action="/fashions" method="POST"  enctype="multipart/form-data">
+            @csrf   
+                <div class="form-group">
+                    <label for="image">画像</label>
+                    <input type="file" class="form-control-file" id="image" name="image">
+                </div>
             <div class="fashionName">
                 <h2>fashion item Name</h2>
                 <input type="text" name="fashion[fashionName]" placeholder="名前"/>
