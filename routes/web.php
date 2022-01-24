@@ -16,6 +16,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'fashionController@index')->middleware('auth');
     
     Route::get('/fashions/register', 'fashionController@register');
+    Route::get('/file', 'FileUpController@index');
+    Route::post('/file', 'FileUpController@store');
     
     Route::get('/fashions/{fashion}', 'fashionController@show');
     Route::post('/fashions','fashionController@store');

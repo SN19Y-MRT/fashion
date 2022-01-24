@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
+        <img src="{{ $fashion->image_path }}" alt="画像">
         <h1 class="fashionName">
             {{ $fashion->fashionName }}
         </h1>
