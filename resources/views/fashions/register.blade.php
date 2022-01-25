@@ -18,7 +18,7 @@
             <div class="fashionName">
                 <h2>fashion item Name</h2>
                 <input type="text" name="fashion[fashionName]" placeholder="名前"/>
-                <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
+                     <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
             </div>
             <div class="fashionOverview">
                 <h2>fashion itemの概要</h2>
