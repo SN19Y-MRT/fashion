@@ -17,6 +17,13 @@ class CreateFashionsTable extends Migration
         Schema::create('fashions', function (Blueprint $table) {
             $table->increments('id');
             $table->char('fashionName', 100);
+            $table->string('fashionOverview',500)->nullable();
+            $table->string('syuunou',500);
+            $table->text('image_path')->nullable();
+            $table->text('public_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            
             
   
             
@@ -30,6 +37,8 @@ class CreateFashionsTable extends Migration
      */
     public function down()
     {
+        $table->dropColumn('image_path');
+        $table->dropColumn('public_id');
         Schema::dropIfExists('fashions');
     }
 }
