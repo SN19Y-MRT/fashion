@@ -37,8 +37,6 @@ class CreateFashionsTable extends Migration
      */
     public function down()
     {
-        $table->dropColumn('image_path');
-        $table->dropColumn('public_id');
         Schema::dropIfExists('fashions');
     }
 }
