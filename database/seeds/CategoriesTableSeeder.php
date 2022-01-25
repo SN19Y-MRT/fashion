@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+            DB::table('categories')->insert([
             'id' => 1,
             'name' => 'トップス',
-        ]);
+            ]);
     }
 }
