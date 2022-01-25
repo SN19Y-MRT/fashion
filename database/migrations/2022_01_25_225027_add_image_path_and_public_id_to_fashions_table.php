@@ -14,8 +14,9 @@ class AddImagePathAndPublicIdToFashionsTable extends Migration
     public function up()
     {
         Schema::table('fashions', function (Blueprint $table) {
-            $table->text('image_path')->nullable();
+                        $table->text('image_path')->nullable();
             $table->text('public_id')->nullable();
+        
         });
     }
 
@@ -27,7 +28,7 @@ class AddImagePathAndPublicIdToFashionsTable extends Migration
     public function down()
     {
         Schema::table('fashions', function (Blueprint $table) {
-            $table->dropColumn('image_path');
+                        $table->dropColumn('image_path');
             $table->dropColumn('public_id');
         });
     }
