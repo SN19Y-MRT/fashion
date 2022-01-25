@@ -8,7 +8,7 @@ class Category extends Model
 {
     public function fashions()   
     {
-        return $this->hasMany('App\fashion');  
+        return $this->hasMany('App\Fashion');  
     }
 
 

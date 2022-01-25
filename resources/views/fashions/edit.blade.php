@@ -9,6 +9,7 @@
             @csrf
             @method('PUT')
             
+            <img src="{{ $fashion->image_path }}" alt="画像">
             <div class='content__title'>
                 <h2>fashion itemの名前</h2>
                 <input type='text' name='fashion[fashionName]' value="{{ $fashion->fashionName }}">
