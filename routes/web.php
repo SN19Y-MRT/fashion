@@ -10,7 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth'], function(){
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/fashions', 'fashionController@index');
+    Route::get('/', 'fashionController@index')->middleware('auth');
+    
+    Route::get('/fashions/register', 'fashionController@register');
+    Route::get('/file', 'FileUpController@index');
+    Route::post('/file', 'FileUpController@store');
+    
+    Route::get('/fashions/{fashion}', 'fashionController@show');
+    Route::post('/fashions','fashionController@store');
+    
+    Route::get('/fashions/{fashion}/edit', 'fashionController@edit');
+    Route::put('/fashions/{fashion}', 'fashionController@update');
+    Route::delete('/fashions/{fashion}', 'fashionController@delete');
+    
+    Route::get('/categories/{category}', 'CategoryController@index');
+    
+    
+
 });
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
