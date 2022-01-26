@@ -17,11 +17,6 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2371c5800bbdf47f38fb89dc2506024bac142430
-
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
 });
