@@ -6,6 +6,7 @@
     <head>
         <meta charset="utf-8">
         <title>MY FASHION ITEM</title>
+         
     </head>
     <body>
         <h1>fahshion item 登録画面</h1>
@@ -39,6 +40,7 @@
                     @endforeach
                 </select>
             </div>
+                
     </body>
             <input type="submit" value="保存"/>
         </form>

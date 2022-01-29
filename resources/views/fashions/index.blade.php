@@ -8,6 +8,7 @@
         <title>MY FASHION ITEM</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+            
     </head>
     
     <body>
@@ -25,7 +26,9 @@
 
 
             @foreach ($fashions as $fashion)
-                
+                <div class="container">
+                <div class="row align-items-center">
+
                 <div class='fashion'>
                     <img src="{{ $fashion->image_path }}" alt="画像">
                     <h2 class='fashionName'>
@@ -41,6 +44,10 @@
                         <button type="submit">削除</button> 
                     </form>
                     <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
+                    
+                    
+                </div>
+                </div>
                 </div>
                 
             @endforeach

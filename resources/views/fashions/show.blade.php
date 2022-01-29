@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="/css/app.css">
+            
     </head>
     <body>
         <img src="{{ $fashion->image_path }}" alt="画像">
@@ -32,6 +33,7 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+            
     </body>
     <p class="edit">[<a href="/fashions/{{ $fashion->id }}/edit">編集</a>]</p>
 </html>
