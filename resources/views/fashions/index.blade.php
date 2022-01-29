@@ -26,8 +26,7 @@
 
 
             @foreach ($fashions as $fashion)
-                <div class="container">
-                <div class="row align-items-center">
+            
 
                 <div class='fashion'>
                     <img src="{{ $fashion->image_path }}" alt="画像">
@@ -47,8 +46,7 @@
                     
                     
                 </div>
-                </div>
-                </div>
+
                 
             @endforeach
             <div class="d-flex justify-content-center ">
