@@ -14,4 +14,12 @@ class fashionRequest extends FormRequest
             'image' => 'mimes:jpeg,jpg,png,gif|max:10240',
         ];
     }
+    
+        public function messages()
+    {
+        return [
+            'image.mimes'    => 'ファイルタイプをjpeg,jpg,png,gifに設定してください。',
+            'image.max'      => 'ファイルサイズを10MB以下に設定してください。',
+        ];
+    }
 }
