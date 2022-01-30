@@ -18,17 +18,17 @@
             <div class="fashionName">
                 <h2>fashion item Name</h2>
                 <input type="text" name="fashion[fashionName]" placeholder="名前"/>
-                     <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
+                     <p class="fashionName__error" style="color:red">{{ $errors->first('fashion item Name') }}</p>
             </div>
             <div class="fashionOverview">
                 <h2>fashion itemの概要</h2>
                 <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要" ></textarea>
-                <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
+                <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashionOverview') }}</p>
             </div>
             <div class="syuunou">
                 <h2>収納場所</h2>
                 <textarea name="fashion[syuunou]" placeholder="クローゼット等"></textarea>
-                <p class="syuunou_error" style="color:red">{{ $errors->first('fashion.syuunou') }}</p>
+                <p class="syuunou_error" style="color:red">{{ $errors->first('収納場所') }}</p>
             </div>
 
             <div class="category">
