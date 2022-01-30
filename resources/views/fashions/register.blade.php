@@ -1,4 +1,4 @@
-@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+@extends('layouts.app')　　
 
 @section('content')
 <!DOCTYPE HTML>
@@ -39,6 +39,7 @@
                     @endforeach
                 </select>
             </div>
+                
     </body>
             <input type="submit" value="保存"/>
         </form>
