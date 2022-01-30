@@ -39,7 +39,6 @@
                     @endforeach
                 </select>
             </div>
-                
     </body>
             <input type="submit" value="保存"/>
         </form>
