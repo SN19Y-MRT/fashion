@@ -9,9 +9,9 @@ class fashionRequest extends FormRequest
     public function rules()
     {
         return [
-            'fashion item Name' => 'required|string|max:100',
-            'fashionOverview' => 'required|string|max:4000',
-            '収納場所' => 'required|string|max:4000',
+            'fashion.fashionName' => 'required|string|max:100',
+            'fashion.fashionOverview' => 'required|string|max:4000',
+            'fashion.syuunou' => 'required|string|max:4000',
             'image' => 'mimes:jpeg,jpg,png,gif|max:10240',
         ];
     }
