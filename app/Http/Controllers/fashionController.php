@@ -44,16 +44,17 @@ class fashionController extends Controller
     }
     public function store(fashionRequest $request, Fashion $fashion)
     {
-               $fashion = new Fashion;
-
+        $fashion = new Fashion;
+        
+        
         if ($image = $request->file('image')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
             //直前にアップロードされた画像のpublicIdを取得する。
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width'     => 200,
-                'height'    => 200
+                'width'     => 50,
+                'height'    => 50
             ]);
             $fashion->image_path = $logoUrl;
             $fashion->public_id  = $publicId;
