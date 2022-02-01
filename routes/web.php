@@ -13,7 +13,7 @@
 Route::group(['middleware' => 'auth'], function(){
 
     
-    Route::get('/fashions/{user}', 'fashionController@index');
+    Route::get('/fashions/', 'fashionController@index');
     Route::get('/', 'fashionController@index')->middleware('auth');
     
     Route::get('/fashions/register', 'fashionController@register');
