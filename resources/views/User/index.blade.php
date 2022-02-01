@@ -19,13 +19,10 @@
               </div>
               <input type="submit" value="検索" class="btn btn-info">
           </form>
-          
-        <div class='fashions' >
- 
-            <a href='/fashions/register'> <button type="submit" class='btn btn-danger'>登録</button></a>
-
-
-            @foreach ($fashions as $fashion)
+         <a href='/fashions/register'> <button type="submit" class='btn btn-danger'>登録</button></a> 
+         <div class="own_posts">
+            
+            @foreach ($own_fashions as $fashion)
                     
                     @if ($fashion->image_path)
                       <img src="{{ $fashion->image_path }}" class="fashions">
@@ -50,7 +47,7 @@
                 
             @endforeach
             <div class="d-flex justify-content-center ">
-                {{ $fashions->links() }}
+                {{ $own_fashions->links() }}
             </div>
         </div>
         

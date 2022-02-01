@@ -17,6 +17,7 @@
         @if ($fashion->image_path)
             <img src="{{ $fashion->image_path }}" class="fashions">
         @endif
+        
         <h1 class="fashionName">
             {{ $fashion->fashionName }}
         </h1>

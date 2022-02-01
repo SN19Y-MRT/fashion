@@ -12,7 +12,8 @@
 */
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/fashions', 'fashionController@index');
+    
+    Route::get('/fashions/{user}', 'fashionController@index');
     Route::get('/', 'fashionController@index')->middleware('auth');
     
     Route::get('/fashions/register', 'fashionController@register');
@@ -30,6 +31,8 @@ Route::group(['middleware' => 'auth'], function(){
     
 
 });
+
+Route::get('/user', 'UserController@index');
 
 
 Auth::routes();

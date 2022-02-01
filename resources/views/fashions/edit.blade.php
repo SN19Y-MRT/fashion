@@ -8,6 +8,9 @@
         <form action="/fashions/{{ $fashion->id }}" method="POST">
             @csrf
             @method('PUT')
+            @if ($fashion->image_path)
+                <img src="{{ $fashion->image_path }}" class="fashions">
+            @endif
             <div class='content__title'>
                 <h2>ファッションアイテムネーム</h2>
                 <input type='text' name='fashion[fashionName]' value="{{ $fashion->fashionName }}">
@@ -20,8 +23,10 @@
                 <h2>収納場所</h2>
                 <input type='text' name='fashion[syuunou]' value="{{ $fashion->syuunou }}"> 
             </div>
-
             <input type="submit" value="保存">
+            <div class="footer">
+                <a href="/">戻る</a>
+            </div>
         </form>
     </div>
 </body>

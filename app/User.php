@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -48,5 +49,15 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CustomResetPassword($token));
+    }
+    
+    public function fashions()   
+    {
+        return $this->hasMany('App\Fashion');  
+    }
+    
+    public function getOwnPaginateByLimit(int $limit_count = 5)
+    {
+        return $this::with('fashions')->find(Auth::id())->fashions()->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
