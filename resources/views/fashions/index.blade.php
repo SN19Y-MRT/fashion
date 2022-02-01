@@ -19,7 +19,7 @@
               </div>
               <input type="submit" value="検索" class="btn btn-info">
           </form>
-
+        
         <div class='fashions' >
  
             <a href='/fashions/register'> <button type="submit" class='btn btn-danger'>登録</button></a>
@@ -27,9 +27,10 @@
 
             @foreach ($fashions as $fashion)
             
-
+                    @if ($fashion->image_path)
+                      <img src="{{ $fashion->image_path }}" class="fashions">
+                    @endif
                 <div class='fashion'>
-                    <img src="{{ $fashion->image_path }}" alt="画像">
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
@@ -43,8 +44,6 @@
                         <button type="submit">削除</button> 
                     </form>
                     <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
-                    
-                    
                 </div>
 
                 

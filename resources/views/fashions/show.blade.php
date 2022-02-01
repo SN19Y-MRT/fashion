@@ -13,14 +13,17 @@
             
     </head>
     <body>
-        <img src="{{ $fashion->image_path }}" alt="画像">
+        
+        @if ($fashion->image_path)
+            <img src="{{ $fashion->image_path }}" class="fashions">
+        @endif
         <h1 class="fashionName">
             {{ $fashion->fashionName }}
         </h1>
         <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
         <div class="content">
             <div class="content__fashion">
-                <h3>概要</h3>
+                <h3>ファッションアイテムの概要</h3>
                 <p>{{ $fashion->fashionOverview }}</p>    
             </div>
         </div>

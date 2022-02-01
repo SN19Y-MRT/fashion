@@ -20,8 +20,7 @@ class CreateFashionsTable extends Migration
             $table->string('fashionOverview',500)->nullable();
             $table->string('syuunou',500);
             $table->integer('category_id')->unsigned();
-            $table->text('image_path')->nullable();
-            $table->text('public_id')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
             $table->softDeletes();
             

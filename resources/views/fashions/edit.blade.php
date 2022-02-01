@@ -8,14 +8,12 @@
         <form action="/fashions/{{ $fashion->id }}" method="POST">
             @csrf
             @method('PUT')
-            
-            <img src="{{ $fashion->image_path }}" alt="画像">
             <div class='content__title'>
-                <h2>fashion itemの名前</h2>
+                <h2>ファッションアイテムネーム</h2>
                 <input type='text' name='fashion[fashionName]' value="{{ $fashion->fashionName }}">
             </div>
             <div class='content__body'>
-                <h2>概要</h2>
+                <h2>ファッションアイテムの概要</h2>
                 <input type='text' name='fashion[fashionOverview]' value="{{ $fashion->fashionOverview }}">
             </div>
             <div class='content_syuunou'>
