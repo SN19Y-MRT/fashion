@@ -32,6 +32,7 @@
                     @endif
                     
                 <div class='fashion'>
+                    <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
                     <h2 class='fashionName'>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     </h2>
@@ -44,7 +45,7 @@
                         @method('DELETE')
                         <button type="submit">削除</button> 
                     </form>
-                    <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
+                    
                 </div>
 
                 

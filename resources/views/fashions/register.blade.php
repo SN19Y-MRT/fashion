@@ -15,12 +15,12 @@
             
             <div class="fashionName">
                 <h2>ファッションアイテムネーム</h2>
-                <input type="text" name="fashion[fashionName]" placeholder="名前"/>
-                     <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
+                <input type="text" name="fashion[fashionName]" placeholder="ファッションアイテムネーム"/>
+                <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
             </div>
             <div class="fashionOverview">
                 <h2>ファッションアイテムの概要</h2>
-                <textarea name="fashion[fashionOverview]" placeholder="登録したfashion itemの概要" ></textarea>
+                <textarea name="fashion[fashionOverview]" placeholder="登録したファッションアイテムの概要" ></textarea>
                 <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
             </div>
             <div class="syuunou">
@@ -40,7 +40,7 @@
             <input type="submit" value="保存"/>
     </body>
         </form>
-        <div class="back">[<a href="/">back</a>]</div>
+        <div class="back">[<a href="/">戻る</a>]</div>
     </body>
 </html>
 @endsection

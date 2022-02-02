@@ -23,6 +23,14 @@
                 <h2>収納場所</h2>
                 <input type='text' name='fashion[syuunou]' value="{{ $fashion->syuunou }}"> 
             </div>
+            <div class="category">
+                <h2>カテゴリー</h2>
+                <select name="fashion[category_id]">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="保存">
             <div class="footer">
                 <a href="/">戻る</a>

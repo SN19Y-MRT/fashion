@@ -18,7 +18,9 @@ class fashionController extends Controller
                 $search = request('search');
                 
                 $fashion_data = Fashion::orderBy('created_at', 'asc')->where(function ($query) use ($search) {
-                    $query->where('fashionName', 'LIKE', "%{$search}%")->orWhere('fashionOverview','LIKE',"%{$search}%")->orWhere('syuunou','LIKE',"%{$search}%");
+                    $query->where('fashionName', 'LIKE', "%{$search}%")
+                        ->orWhere('fashionOverview','LIKE',"%{$search}%")
+                        ->orWhere('syuunou','LIKE',"%{$search}%");
                 })->paginate(10);
             }else{
                 $fashion_data = $fashion->getPaginateByLimit();
@@ -59,9 +61,9 @@ class fashionController extends Controller
         
     }
     
-    public function edit(Fashion $fashion)
+    public function edit(Fashion $fashion,Category $category)
     {
-        return view('fashions/edit')->with(['fashion' => $fashion]);
+        return view('fashions/edit')->with(['categories' => $category->get()])->with(['fashion' => $fashion]);
     }
     
     public function update(fashionRequest $request, Fashion $fashion)

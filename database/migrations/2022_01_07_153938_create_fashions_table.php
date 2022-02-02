@@ -17,7 +17,7 @@ class CreateFashionsTable extends Migration
         Schema::create('fashions', function (Blueprint $table) {
             $table->increments('id');
             $table->char('fashionName', 100);
-            $table->string('fashionOverview',500)->nullable();
+            $table->string('fashionOverview',500);
             $table->string('syuunou',500);
             $table->integer('category_id')->unsigned();
             $table->string('image_path')->nullable();

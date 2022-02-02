@@ -15,9 +15,9 @@ Route::group(['middleware' => 'auth'], function(){
     
     
     Route::get('/', 'fashionController@index')->middleware('auth');
-    
+    Route::get('/fashions/', 'fashionController@index');
     Route::get('/fashions/register', 'fashionController@register');
-
+    
     
     Route::get('/fashions/{fashion}', 'fashionController@show');
     Route::post('/fashions','fashionController@store');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/categories/{category}', 'CategoryController@index');
     
     
-
+    
 });
 
 
