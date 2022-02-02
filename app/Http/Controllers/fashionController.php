@@ -54,7 +54,6 @@ class fashionController extends Controller
         $fashion->image_path = Storage::disk('s3')->url($path);
         
         $input = $request['fashion'];
-        $input += ['user_id' => $request->user()->id];
         $fashion->fill($input)->save();
         return redirect('/fashions/' . $fashion->id);
         
@@ -68,7 +67,6 @@ class fashionController extends Controller
     public function update(fashionRequest $request, Fashion $fashion)
     {
         $input_fashion = $request['fashion'];
-        $input += ['user_id' => $request->user()->id];
         $fashion->fill($input_fashion)->save();
         return redirect('/fashions/' . $fashion->id);
     }
