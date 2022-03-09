@@ -12,7 +12,7 @@
 */
 Route::group(['middleware' => 'auth'], function(){
 
-    
+
     
     Route::get('/', 'fashionController@index')->middleware('auth');
     Route::get('/fashions/', 'fashionController@index');
@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function(){
     
     
 });
+
 
 
 Auth::routes();

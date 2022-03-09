@@ -1,78 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# マイファッションアイテム管理アプリ
+※ dDEMO用メールアドレス：aaa@icloud.com     パスワード：testtest
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+本アプリは、自分のファッションアイテムを管理出来るアプリです。\
+ユーザーは登録ボタン押下後、必要項目（ファッションアイテムの写真、名前、概要、収納場所、カテゴリー名）を入力後、登録し、トップページで自分が登録したファッションアイテムを確認することが出来ます。
+ファッションアイテムの名前、概要、収納場所でキーワード検索出来るようにもしているので、登録アイテムが増えても心配ありません。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 作成した背景/目的
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+私は、常日頃からファッションアイテムに興味がありました。
+どんな服を着て、どんなアクセサリーを付けて、というのを考えるのが趣味でもありました。
+なので、多種類のファッションアイテムを購入し、自分の部屋にて収納していました。
+ですが問題点として、どこに何を収納したかというのが分からなくなっていきました。
+そこで、Webページ上でファッションアイテムの写真、名前、概要、収納場所、カテゴリーという項目で登録できる「マイファッションアイテム管理アプリ」を作成しました。
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 開発環境
+#### OS
+Windows 10 Home
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### フロントエンド
+- HTML/CSS
+- Bootstrap v4.0.0
 
-## Laravel Sponsors
+#### バックエンド
+- PHP v7.3.28
+- Laravel v6.20.27
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### データベース
+MariaDB v10.2
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+#### インフラ
+AWS（EC2）
 
-## Contributing
+#### デプロイ
+Heroku（ https://myfashionitem.herokuapp.com/ ）
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## 注力した機能
+- 登録したファッションアイテムをキーワード（名前、概要、収納場所）で検索出来るようにしました。
+            
+            if ($search = request('search')) {
+                
+                $search = request('search');
+                
+                $fashion_data = Fashion::orderBy('created_at', 'asc')->where(function ($query) use ($search) {
+                    $query->where('fashionName', 'LIKE', "%{$search}%")
+                        ->orWhere('fashionOverview','LIKE',"%{$search}%")
+                        ->orWhere('syuunou','LIKE',"%{$search}%");
+                })->paginate(10);
+            }else{
+                $fashion_data = $fashion->getPaginateByLimit();
+            }
+        return view('fashions/index')->with(['fashions' => $fashion_data]);
+ 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## テーブル定義
+#### categoriesテーブル
+|  カラム名  |  データ型  |  詳細  |
+| ---- | ---- | ---- |
+|  id  |  int(10) unsigned  |  ID  |
+|  name  |  varchar(50)   |   カテゴリー名  |
+|  created_at  |  timestamp  |  データ作成時間  |
+|  updated_at |  timestamp  |  データ更新時間  |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+#### fashionsテーブル
+|  カラム名  |  データ型  |  詳細  |
+| ---- | ---- | ---- |
+|  id  |  int(10) unsigned   |  ID  |
+|  fashionName  |  char(100)  |  ファッションアイテム名  |
+|  fashionOverview  |  varchar(500)  |  ファッションアイテムの概要  |
+|  syuunou  |  varchar(500)  | 　収納場所  |
+|  category_id  |  int(10) unsigned  |  カテゴリーID  |
+|  image_path  |  varchar(255)  |  ファッションアイテムの写真  |
+|  created_at  |  timestamp  |  データ作成時間  |
+|  updated_at |  timestamp  |  データ更新時間  |
+|  deleted_at |  timestamp  |  データ時間削除時間  |
+
