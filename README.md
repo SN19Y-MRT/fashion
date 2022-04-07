@@ -22,14 +22,14 @@ Windows 10 Home
 
 #### フロントエンド
 - HTML/CSS
-- Bootstrap v4.0.0
+- Bootstrap v5.0.0
 
 #### バックエンド
-- PHP v7.3.28
-- Laravel v6.20.27
+- PHP v8.0.15
+- Laravel v6.20.44
 
 #### データベース
-MariaDB v10.2
+MariaDB v10.2.38
 
 #### インフラ
 AWS（EC2）
