@@ -29,13 +29,15 @@
                     
                 <div class='fashion'>
                     カテゴリー名：　<a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
-                    <h2 class='fashionName'>
-                        ファッションアイテムネーム：　<a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
-                    </h2>
                     
-                    概要：　<p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
-                    収納場所：　<p class='syuunou'>{{ $fashion->syuunou }}</p>
+                        <p>【ファッションアイテムネーム】</p>
+                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     
+                    <p>【概要】</p>
+                    <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
+                    <p>【収納場所】</p>
+                    <p class='syuunou'>{{ $fashion->syuunou }}</p>
+            
                     <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
                         @csrf
                         @method('DELETE')
