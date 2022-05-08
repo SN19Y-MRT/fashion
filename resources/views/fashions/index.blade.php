@@ -10,14 +10,19 @@
 
     <body>
         <h1>MY FASHION ITEM</h1>
+        <form class="row g-3">
+          <div class="col-auto">
+            <input type="search" class="form-control" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+          </div>
+          <div class="col-auto">
+            <button type="submit" value="検索" class="btn btn-primary">検索</button>
+          </div>
+          <div class="col-auto">
+            <a class="btn btn-warning" href="/fashions/register" role="button">登録</a>
+          </div>
+          
+        </form>
         
-         <form class="form-inline my-2 my-lg-0 ml-2">
-              <div class="form-group">
-              <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
-              </div>
-              <input type="submit" value="検索" class="btn btn-primary">
-          </form>
-        <a href='/fashions/register'> <button type="submit" class="btn btn-primary">登録</button></a>  
           
         
         <div class='fashions' >
@@ -29,7 +34,6 @@
                     
                 <div class='fashion'>
                     カテゴリー名：　<a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
-                    
                         <p>【ファッションアイテムネーム】</p>
                         <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
                     
