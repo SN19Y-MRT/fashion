@@ -8,6 +8,8 @@
         <!-- Fonts -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  
+
             
     </head>
     <body>
@@ -16,19 +18,21 @@
             <img src="{{ $fashion->image_path }}" class="mw-100" width="200" height="250">
         @endif
         
-        <h1 class="fashionName">
+        <h2>【ファッションアイテムネーム】</h2>
+        <h3 class="fashionName">
             {{ $fashion->fashionName }}
-        </h1>
+        </h3>
+        <h2>【カテゴリー名】</h2>
         <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
         <div class="content">
             <div class="content__fashion">
-                <h3>ファッションアイテムの概要</h3>
-                <p>{{ $fashion->fashionOverview }}</p>    
+                <h2>【ファッションアイテムの概要】</h2>
+                <h3>{{ $fashion->fashionOverview }}</h3>    
             </div>
         </div>
         <h1 class="syuunou">
-            <h3>収納場所</h3>
-            <p>{{ $fashion->syuunou }}</p>
+            <h2>【収納場所】</h2>
+            <h3>{{ $fashion->syuunou }}</h3>
         </h1>
 
         

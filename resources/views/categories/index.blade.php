@@ -11,40 +11,35 @@
     </head>
 
     <body>
-        <h1>My fashion item</h1>
-        
-         <form class="form-inline my-2 my-lg-0 ml-2">
-              <div class="form-group">
-              <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
-              </div>
-              <input type="submit" value="検索" class="btn btn-primary">
-          </form>
-          <a href='/fashions/register'> <button type="submit" class='btn btn-primary'>登録</button></a>
+        <h1>MY FASHION ITEM</h1>
         <div class='fashions' >
             @foreach ($fashions as $fashion)
-                    
                     @if ($fashion->image_path)
-                      <img src="{{ $fashion->image_path }}" class="mw-100" width="200" height="250">
+                        <img src="{{ $fashion->image_path }}" class="mw-100" width="200" height="250">
                     @endif
                     
-                <div class='fashion'>
+                    <h2>【ファッションアイテムネーム】</h2>
+                    <h3 class="fashionName">
+                        {{ $fashion->fashionName }}
+                    </h3>
+                    <h2>【カテゴリー名】</h2>
                     <a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
-                    <h2 class='fashionName'>
-                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
-                    </h2>
+                    <div class="content">
+                        <div class="content__fashion">
+                            <h2>【ファッションアイテムの概要】</h2>
+                            <h3>{{ $fashion->fashionOverview }}</h3>    
+                        </div>
+                    </div>
+                    <h1 class="syuunou">
+                        <h2>【収納場所】</h2>
+                        <h3>{{ $fashion->syuunou }}</h3>
+                    </h1>
+            
                     
-                    <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
-                    <p class='syuunou'>{{ $fashion->syuunou }}</p>
-                    
-                    <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">削除</button> 
-                    </form>
-                    
-                </div>
-
-                
+                    <div class="footer">
+                        <a href="/">戻る</a>
+                    </div>
+        
             @endforeach
             <div class="d-flex justify-content-center ">
                 {{ $fashions->links() }}
