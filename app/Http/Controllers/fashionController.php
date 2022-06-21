@@ -13,6 +13,7 @@ class fashionController extends Controller
 {
     public function index(Fashion $fashion)
     {
+        //検索機能
            if ($search = request('search')) {
                 
                 $search = request('search');
