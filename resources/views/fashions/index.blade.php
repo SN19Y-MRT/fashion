@@ -9,44 +9,43 @@
     </head>
 
     <body>
-        <h1>MY FASHION ITEM</h1>
+        <h1 class="text-center font-italic">MY FASHION ITEM</h1>
         <form class="row g-3">
           <div class="col-auto">
             <input type="search" class="form-control" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
           </div>
           <div class="col-auto">
-            <button type="submit" value="検索" class="btn btn-primary">検索</button>
+                <button type="submit" value="検索" class="btn btn-primary">検索</button>
           </div>
           <div class="col-auto">
             <a class="btn btn-warning" href="/fashions/register" role="button">登録</a>
           </div>
           
+
         </form>
         
         <div class='fashions'>
             @foreach ($fashions as $fashion)
-                    
-                    @if ($fashion->image_path)
+            
+            <div class="card" style="width: 18rem;">
+              @if ($fashion->image_path)
                       <img src="{{ $fashion->image_path }}" class="mw-100" width="200" height="250">
                     @endif
-                    
-                <div class='fashion'>
-                    カテゴリー名：　<a href="/categories/{{ $fashion->category->id }}">{{ $fashion->category->name }}</a>
-                        <p>【ファッションアイテムネーム】</p>
-                        <a href="/fashions/{{ $fashion->id }}">{{ $fashion->fashionName }}</a>
-                    
-                    <p>【概要】</p>
-                    <p class='fashionOverview'>{{ $fashion->fashionOverview }}</p>
-                    <p>【収納場所】</p>
-                    <p class='syuunou'>{{ $fashion->syuunou }}</p>
-            
-                    <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">削除</button> 
-                    </form>
-                    
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">ファッションアイテムネーム</h5>
+                    <a href="/fashions/{{ $fashion->id }}" class="card-text">{{ $fashion->fashionName }}</a>
+                <h5 class="card-title">概要</h5>
+                    <p class='fashionOverview card-text'>{{ $fashion->fashionOverview }}</p>
+                <h5 class="card-title">収納場所</h5>
+                    <p class='syuunou card-text'>{{ $fashion->syuunou }}</p>
+                <h5 class="card-title">カテゴリー名</h5>
+                    <a href="/categories/{{ $fashion->category->id }}" class="card-text">{{ $fashion->category->name }}</a>
+              </div>
+                <form action="/fashions/{{ $fashion->id }}" id="form_{{ $fashion->id }}" method="post" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">削除</button> 
+                </form>
 
                 
             @endforeach
