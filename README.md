@@ -15,6 +15,13 @@
 ですが問題点として、日々増えていくファッションアイテムをクローゼットだけでは管理出来なくなってしまい、どこに何を収納したかというのが分からなくなっていきました。
 そこで、Webページ上でファッションアイテムの写真、名前、概要、収納場所、カテゴリーという項目で登録し、一覧表示出来る「マイファッションアイテム管理アプリ」を作成しました。
 
+##機能
+- 登録機能
+- 詳細画面表示機能
+- 編集機能
+- 削除機能
+- キーワード（ファッションアイテムネーム、概要、収納場所）検索機能
+- 認証機能
 
 ## 開発環境
 #### OS
@@ -41,15 +48,18 @@ Heroku（ https://myfashionitem.herokuapp.com/ ）
 ## 注力した機能
 - 登録したファッションアイテムをキーワード（名前、概要、収納場所）で検索出来るようにしました。
             
+            //もしもし検索フォームにキーワードが入力されたら
             if ($search = request('search')) {
                 
                 $search = request('search');
-                
+                //whereでLIKEを使う事であいまい検索にしている
+                //orWhereを使う事で、ファッションアイテムネーム、概要、収納場所で検索している
                 $fashion_data = Fashion::orderBy('created_at', 'asc')->where(function ($query) use ($search) {
                     $query->where('fashionName', 'LIKE', "%{$search}%")
                         ->orWhere('fashionOverview','LIKE',"%{$search}%")
                         ->orWhere('syuunou','LIKE',"%{$search}%");
                 })->paginate(10);
+            //検索フォームに何も入力されていない時は全てのアイテムを表示する
             }else{
                 $fashion_data = $fashion->getPaginateByLimit();
             }
