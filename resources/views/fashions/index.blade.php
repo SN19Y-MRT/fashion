@@ -30,6 +30,7 @@
             <div class="card" style="width: 18rem;">
               @if ($fashion->image_path)
                       <img src="{{ $fashion->image_path }}" class="mw-100" width="200" height="250">
+                  
                     @endif
               <div class="card-body">
                 <h5 class="card-title">ファッションアイテムネーム</h5>
