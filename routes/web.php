@@ -39,6 +39,10 @@ Route::get('/phpinfo',function(){
     return view('phpinfo');
 });
 
+Route::get('/sample',function(){
+    return view('sample');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

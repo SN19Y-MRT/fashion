@@ -6,7 +6,7 @@ use App\Fashion;
 use GuzzleHttp\Client;
 use App\Http\Requests\fashionRequest;
 use Storage;
-
+use JD\Cloudder\Facades\Cloudder;
  
 
 class fashionController extends Controller
@@ -49,12 +49,18 @@ class fashionController extends Controller
     }
     public function store(fashionRequest $request, Fashion $fashion)
     {
-        //s3アップロード開始
-        $image = $request->file('image');
-        // バケットの`myprefix`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
-        // アップロードした画像のフルパスを取得
-        $fashion->image_path = Storage::disk('s3')->url($path);
+         if ($image = $request->file('image')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            //直前にアップロードされた画像のpublicIdを取得する。
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 200,
+                'height'    => 200
+            ]);
+            $fashion->image_path = $logoUrl;
+            $fashion->public_id  = $publicId;
+        }
         
         $input = $request['fashion'];
         $fashion->fill($input)->save();

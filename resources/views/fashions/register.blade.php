@@ -12,22 +12,21 @@
         <h1>ファッションアイテム登録画面</h1>
         <form action="/fashions" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3">
+            <div class="form-group">
             <input type="file" name="image">
-            
             <div class="fashionName">
                 <h2>ファッションアイテムネーム</h2>
-                <input type="text" name="fashion[fashionName]" placeholder="ファッションアイテムネーム"/>
+                <input type="text" class="form-control" name="fashion[fashionName]" placeholder="ファッションアイテムネーム"/>
                 <p class="fashionName__error" style="color:red">{{ $errors->first('fashion.fashionName') }}</p>
             </div>
             <div class="fashionOverview">
                 <h2>ファッションアイテムの概要</h2>
-                <textarea name="fashion[fashionOverview]" placeholder="登録したファッションアイテムの概要" ></textarea>
+                <textarea name="fashion[fashionOverview]" class="form-control" rows="3" placeholder="登録したファッションアイテムの概要" ></textarea>
                 <p class="fashionOverview__error" style="color:red">{{ $errors->first('fashion.fashionOverview') }}</p>
             </div>
             <div class="syuunou">
                 <h2>収納場所</h2>
-                <textarea name="fashion[syuunou]" placeholder="クローゼット等"></textarea>
+                <textarea name="fashion[syuunou]" class="form-control" placeholder="クローゼット等"></textarea>
                 <p class="syuunou_error" style="color:red">{{ $errors->first('fashion.syuunou') }}</p>
             </div>
 
